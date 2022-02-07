@@ -1,12 +1,24 @@
 <template>
   <div id="cliente">
-    <h2 class="cliente-nome">Cliente aqui!</h2>
-    <h3>Descrição do cliente: Bla bla bla...</h3>
+    <h2 class="cliente-nome">{{ nome }}</h2>
+    <h3>
+      <span style="color: red">Descrição do cliente:</span> {{ descricao }}
+    </h3>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      nome: "Mariana Oliveira de Albuquerque",
+      telefone: "",
+      email: "",
+      idade: 0,
+      descricao: "Lorem ipsum lorem ipsum",
+    };
+  },
+};
 </script>
 
 <style scoped>
