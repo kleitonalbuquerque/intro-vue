@@ -1,5 +1,12 @@
 <template>
   <div id="cliente">
+    <label>Nome:</label>
+    <input type="text" :value="nome" />
+    <br />
+    <br />
+    <label>Descrição</label>
+    <input type="text" :value="descricao" />
+    <hr />
     <h2 class="cliente-nome">{{ nome }}</h2>
     <h3>
       <span style="color: red">Descrição do cliente:</span> {{ descricao }}
