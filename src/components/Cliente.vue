@@ -1,11 +1,11 @@
 <template>
   <div id="cliente">
     <label>Nome:</label>
-    <input type="text" :value="nome" />
+    <input type="text" v-model="nome" />
     <br />
     <br />
     <label>Descrição</label>
-    <input type="text" :value="descricao" />
+    <input type="text" v-model="descricao" />
     <hr />
     <h2 class="cliente-nome">{{ nome }}</h2>
     <h3>
@@ -29,11 +29,15 @@ export default {
 </script>
 
 <style scoped>
+input {
+  width: 400px;
+}
+
 #cliente {
   color: rgb(0, 255, 0);
   background-color: black;
   max-width: 600px;
-  height: 150px;
+  height: 200px;
   margin: 20px;
   padding: 10px;
 }
