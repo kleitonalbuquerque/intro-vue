@@ -30,9 +30,11 @@ export default {
   },
   methods: {
     mudarCor: function ($event) {
-      console.log($event)
+      console.log($event);
+      // troca a classe
       this.isPremium = !this.isPremium;
 
+      // Informa se o cliente é Standard ou Premium
       if (this.isPremium === false) {
         this.categoria = "STANDARD";
       } else {
