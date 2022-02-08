@@ -1,12 +1,13 @@
 <template>
   <div id="cliente">
-    <h4>Nome: {{ cliente.nome }}</h4>
+    <h4>Nome: {{ nome }}</h4>
     <hr />
     <p>{{ descricao }}</p>
     <hr />
-    <p>Telefone: {{ cliente.telefone }}</p>
-    <p>E-mail: {{ cliente.email }}</p>
-    <p>Idade: {{ cliente.idade }}</p>
+    <p>Telefone: {{ telefone }}</p>
+    <p>E-mail: {{ email }}</p>
+    <p v-if="showIdade === true">Idade: {{ idade }}</p>
+    <p v-else style="color: red">Idade escondida!</p>
   </div>
 </template>
 
@@ -23,6 +24,7 @@ export default {
     email: String,
     idade: Number,
     cliente: Object,
+    showIdade: Boolean,
   },
 };
 </script>
