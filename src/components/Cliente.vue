@@ -2,7 +2,7 @@
   <div :class="{ cliente: !isPremium, 'cliente-premium': isPremium }">
     <h4>Nome: {{ cliente.nome }}</h4>
     <hr />
-    <p>{{ descricao }}</p>
+    <p>Descriçao: {{ descricao }}</p>
     <hr />
     <p>Telefone: {{ telefone }}</p>
     <p>E-mail: {{ cliente.email }}</p>
@@ -21,9 +21,6 @@ export default {
     };
   },
   props: {
-    nome: String,
-    email: String,
-    idade: Number,
     cliente: Object,
     showIdade: Boolean,
   },
