@@ -1,5 +1,5 @@
 <template>
-  <div id="cliente">
+  <div :class="{ cliente: !isPremium, 'cliente-premium': isPremium }">
     <h4>Nome: {{ nome }}</h4>
     <hr />
     <p>{{ descricao }}</p>
@@ -17,6 +17,7 @@ export default {
     return {
       descricao: "Lorem ipsum lorem ipsum",
       telefone: "99999999",
+      isPremium: false,
     };
   },
   props: {
@@ -34,8 +35,17 @@ input {
   width: 400px;
 }
 
-#cliente {
+.cliente {
   background-color: #ece5e3;
+  max-width: 600px;
+  height: 250px;
+  padding: 1%;
+  margin-top: 4px;
+}
+
+.cliente-premium {
+  background-color: #000;
+  color: gold;
   max-width: 600px;
   height: 250px;
   padding: 1%;
