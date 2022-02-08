@@ -8,6 +8,9 @@
     <p>E-mail: {{ cliente.email }}</p>
     <p v-if="showIdade === true">Idade: {{ cliente.idade }}</p>
     <p v-else style="color: red">Idade escondida!</p>
+    <!-- <p>{{ isPremium }}</p> -->
+    <p>{{ categoria }}</p>
+    <button @click="mudarCor($event)">Mudar categoria</button>
   </div>
 </template>
 
@@ -18,11 +21,24 @@ export default {
       descricao: "Lorem ipsum lorem ipsum",
       telefone: "99999999",
       isPremium: false,
+      categoria: "STANDARD",
     };
   },
   props: {
     cliente: Object,
     showIdade: Boolean,
+  },
+  methods: {
+    mudarCor: function ($event) {
+      console.log($event)
+      this.isPremium = !this.isPremium;
+
+      if (this.isPremium === false) {
+        this.categoria = "STANDARD";
+      } else {
+        this.categoria = "PREMIUM";
+      }
+    },
   },
 };
 </script>
@@ -35,7 +51,7 @@ input {
 .cliente {
   background-color: #ece5e3;
   max-width: 600px;
-  height: 250px;
+  height: 300px;
   padding: 1%;
   margin-top: 4px;
 }
@@ -44,7 +60,7 @@ input {
   background-color: #000;
   color: gold;
   max-width: 600px;
-  height: 250px;
+  height: 300px;
   padding: 1%;
   margin-top: 4px;
 }
