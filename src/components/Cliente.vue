@@ -1,12 +1,12 @@
 <template>
   <div :class="{ cliente: !isPremium, 'cliente-premium': isPremium }">
-    <h4>Nome: {{ nome }}</h4>
+    <h4>Nome: {{ cliente.nome }}</h4>
     <hr />
     <p>{{ descricao }}</p>
     <hr />
     <p>Telefone: {{ telefone }}</p>
-    <p>E-mail: {{ email }}</p>
-    <p v-if="showIdade === true">Idade: {{ idade }}</p>
+    <p>E-mail: {{ cliente.email }}</p>
+    <p v-if="showIdade === true">Idade: {{ cliente.idade }}</p>
     <p v-else style="color: red">Idade escondida!</p>
   </div>
 </template>
