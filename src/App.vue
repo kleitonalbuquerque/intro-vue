@@ -34,7 +34,9 @@
     /> -->
 
     <div v-for="cliente in clientes" :key="cliente.id">
-      <p><Cliente :cliente="cliente" :showIdade="true" /></p>
+      <p>
+        <Cliente :cliente="cliente" :showIdade="true" />
+      </p>
       <label for="">Editar: </label>
       <input type="text" v-model="cliente.nome" />
       <input type="text" v-model="cliente.email" />
