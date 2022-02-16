@@ -3,19 +3,26 @@
     <h1>Guia Clientes</h1>
     <hr />
     <h3>Cadastro:</h3>
+    <small class="error" v-show="deuErro">O nome não pode ser vazio!</small
+    ><br />
     <input type="text" id="nome" placeholder="nome" v-model="nomeField" /><br />
+    <small class="error" v-show="deuErro">O e-mail não pode ser vazio!</small
+    ><br />
     <input
       type="email"
       id="email"
       placeholder="e-mail"
       v-model="emailField"
     /><br />
+    <small class="error" v-show="deuErro"
+      >A idade deve ser igual ou maior que zero!</small
+    ><br />
     <input
       type="number"
       id="idade"
       placeholder="idade"
       v-model="idadeField"
-    /><br />
+    /><br /><br />
     <button @click="cadastrarUsuario">Cadastrar</button>
     <hr />
     <div v-for="cliente in clientes" :key="cliente.id">
@@ -34,6 +41,7 @@ export default {
   name: "App",
   data() {
     return {
+      deuErro: false,
       nomeField: "",
       emailField: "",
       idadeField: 0,
@@ -79,12 +87,15 @@ export default {
       if (this.nomeField === "") {
         alert("Por favor informe o nome!");
         document.getElementById("nome").focus();
+        this.deuErro = true;
       } else if (this.emailField === "") {
         alert("Por favor informe o e-mail!");
         document.getElementById("email").focus();
+        this.deuErro = true;
       } else if (this.idadeField < 0) {
         alert("Por favor informe a idade!");
         document.getElementById("idade").focus;
+        this.deuErro = true;
       } else {
         this.clientes.push({
           nome: this.nomeField,
@@ -92,6 +103,7 @@ export default {
           idade: this.idadeField,
           id: Date.now(),
         });
+        this.deuErro = false;
       }
       (this.nomeField = ""), (this.emailField = ""), (this.idadeField = 0);
     },
@@ -99,4 +111,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.error {
+  color: red;
+}
+</style>
