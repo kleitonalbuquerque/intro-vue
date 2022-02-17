@@ -1,11 +1,11 @@
 <template>
   <div :class="{ cliente: !isPremium, 'cliente-premium': isPremium }">
-    <h4>Nome: {{ cliente.nome }}</h4>
+    <h4>Nome: {{ cliente.nome | stringUpperCase }}</h4>
     <hr />
     <p>Descriçao: {{ descricao }}</p>
     <hr />
     <p>Telefone: {{ telefone }}</p>
-    <p>E-mail: {{ cliente.email }}</p>
+    <p>E-mail: {{ cliente.email | stringUpperCase }}</p>
     <p v-if="showIdade === true">Idade: {{ cliente.idade }}</p>
     <p v-else style="color: red">Idade escondida!</p>
     <!-- <p>{{ isPremium }}</p> -->
@@ -55,6 +55,11 @@ export default {
     testar: function () {
       console.log("Testando para valer!");
       alert("Isso é um alert!");
+    },
+  },
+  filters: {
+    stringUpperCase: function (value) {
+      return "guiadoprogramador.".toUpperCase() + value.toUpperCase();
     },
   },
 };
