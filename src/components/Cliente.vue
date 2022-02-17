@@ -11,6 +11,7 @@
     <!-- <p>{{ isPremium }}</p> -->
     <p>{{ categoria }}</p>
     <button @click="mudarCor($event)">Mudar categoria</button>
+    <button @click="emitirEventoDelete">Deletar</button>
   </div>
 </template>
 
@@ -40,6 +41,20 @@ export default {
       } else {
         this.categoria = "PREMIUM";
       }
+    },
+    emitirEventoDelete: function () {
+      console.log("Emitindo evento do filho!");
+      this.$emit("meDelete", {
+        clienteId: this.cliente.id,
+        curso: "Formação NodeJS",
+        emPromocao: true,
+        aluno: "Kleiton Albuquerque",
+        component: this,
+      });
+    },
+    testar: function () {
+      console.log("Testando para valer!");
+      alert("Isso é um alert!");
     },
   },
 };

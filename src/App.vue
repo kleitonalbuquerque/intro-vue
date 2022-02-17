@@ -27,7 +27,11 @@
     <hr />
     <div v-for="cliente in clientes" :key="cliente.id">
       <p>
-        <Cliente :cliente="cliente" :showIdade="true" />
+        <Cliente
+          :cliente="cliente"
+          :showIdade="true"
+          @meDelete="deletarUsuario($event)"
+        />
       </p>
       <hr />
     </div>
@@ -106,6 +110,14 @@ export default {
         this.deuErro = false;
       }
       (this.nomeField = ""), (this.emailField = ""), (this.idadeField = 0);
+    },
+    deletarUsuario: function ($event) {
+      console.log("Recebendo evento!");
+      // console.log($event.clienteId);
+      // $event.component.testar();
+      var id = $event.clienteId;
+      var novoArray = this.clientes.filter((cliente) => cliente.id != id);
+      this.clientes = novoArray;
     },
   },
 };
