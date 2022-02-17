@@ -12,6 +12,7 @@
     <p>{{ categoria }}</p>
     <button @click="mudarCor($event)">Mudar categoria</button>
     <button @click="emitirEventoDelete">Deletar</button>
+    <h4>ID Especial: {{ idEspecial }}</h4>
   </div>
 </template>
 
@@ -62,6 +63,15 @@ export default {
       return "guiadoprogramador.".toUpperCase() + value.toUpperCase();
     },
   },
+  computed: {
+    idEspecial: function () {
+      return (
+        this.cliente.email +
+        this.cliente.nome +
+        this.cliente.id
+      ).toUpperCase();
+    },
+  },
 };
 </script>
 
@@ -73,7 +83,7 @@ input {
 .cliente {
   background-color: #ece5e3;
   max-width: 600px;
-  height: 300px;
+  height: 350px;
   padding: 1%;
   margin-top: 4px;
 }
