@@ -9,9 +9,16 @@
     <p v-if="showIdade === true">Idade: {{ cliente.idade }}</p>
     <p v-else style="color: red">Idade escondida!</p>
     <!-- <p>{{ isPremium }}</p> -->
-    <p>{{ categoria }}</p>
-    <button @click="mudarCor($event)">Mudar categoria</button>
-    <button @click="emitirEventoDelete">Deletar</button>
+    <p class="categoria">{{ categoria }}</p>
+    <!-- <button @click="mudarCor($event)">Mudar categoria</button> -->
+    <div class="buttons">
+      <button class="button is-warning" @click="mudarCor($event)">
+        Mudar categoria
+      </button>
+      <button class="button is-danger" @click="emitirEventoDelete">
+        Deletar
+      </button>
+    </div>
     <h4>ID Especial: {{ idEspecial }}</h4>
   </div>
 </template>
@@ -88,11 +95,15 @@ input {
   margin-top: 4px;
 }
 
+.categoria {
+  font-weight: 900;
+}
+
 .cliente-premium {
   background-color: #000;
   color: gold;
   max-width: 600px;
-  height: 300px;
+  height: 350px;
   padding: 1%;
   margin-top: 4px;
 }
