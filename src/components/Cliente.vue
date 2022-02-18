@@ -60,7 +60,7 @@ export default {
   },
   filters: {
     stringUpperCase: function (value) {
-      return "guiadoprogramador.".toUpperCase() + value.toUpperCase();
+      return value.toUpperCase();
     },
   },
   computed: {

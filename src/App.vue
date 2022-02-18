@@ -25,7 +25,7 @@
     /><br /><br />
     <button @click="cadastrarUsuario">Cadastrar</button>
     <hr />
-    <div v-for="cliente in clientes" :key="cliente.id">
+    <div v-for="cliente in orderClientes" :key="cliente.id">
       <p>
         <Cliente
           :cliente="cliente"
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import Cliente from "./components/Cliente.vue";
 
 export default {
@@ -118,6 +119,11 @@ export default {
       var id = $event.clienteId;
       var novoArray = this.clientes.filter((cliente) => cliente.id != id);
       this.clientes = novoArray;
+    },
+  },
+  computed: {
+    orderClientes: function () {
+      return _.orderBy(this.clientes, ["nome"], ["asc"]);
     },
   },
 };
