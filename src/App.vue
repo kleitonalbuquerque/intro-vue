@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <h1>Guia Clientes</h1>
     <hr />
     <h3>Cadastro:</h3>
@@ -23,7 +23,11 @@
       placeholder="idade"
       v-model="idadeField"
     /><br /><br />
-    <button @click="cadastrarUsuario">Cadastrar</button>
+    <div class="buttons">
+      <button class="button is-primary" @click="cadastrarUsuario">
+        Cadastrar
+      </button>
+    </div>
     <hr />
     <div v-for="cliente in orderClientes" :key="cliente.id">
       <p>
