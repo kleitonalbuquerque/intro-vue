@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="container">
-    <h1>Guia Clientes</h1>
+    <h1 class="title is-1">Guia Clientes</h1>
     <hr />
-    <h3>Cadastro:</h3>
+    <h3 class="title is-3">Cadastro:</h3>
     <small class="error" v-show="deuErro">O nome não pode ser vazio!</small
     ><br />
     <input type="text" id="nome" placeholder="nome" v-model="nomeField" /><br />
